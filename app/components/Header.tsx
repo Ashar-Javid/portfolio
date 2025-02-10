@@ -13,6 +13,7 @@ const Header = () => {
     { name: "Skills", path: "/skills" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
+    { name: "Blog", path: "/blog" },
   ]
 
   return (
@@ -24,8 +25,19 @@ const Header = () => {
         </motion.div>
         <nav className="hidden md:flex space-x-4">
           {navItems.map((item) => (
-            <motion.div key={item.name} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Link href={item.path} className="text-white hover:text-emerald-400 transition-colors">
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.indexOf(item) * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative"
+            >
+              <Link
+                href={item.path}
+                className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 transition-all"
+              >
                 {item.name}
               </Link>
             </motion.div>

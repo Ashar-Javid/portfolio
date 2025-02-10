@@ -3,66 +3,73 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
-const About = () => {
+export default function About() {
   return (
-    <section className="min-h-screen py-16 bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold mb-8 text-center text-emerald-400"
+    <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="container mx-auto max-w-4xl">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col md:flex-row gap-8 items-center"
         >
-          About Me
-        </motion.h1>
-        <div className="flex flex-col md:flex-row items-center justify-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:w-1/3 mb-8 md:mb-0"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-blue-500 shadow-xl"
           >
             <Image
-              src="/10.jpg"
-              alt="Muhammad Ashar Javid"
-              width={400}
-              height={400}
-              className="rounded-lg shadow-2xl"
+              src="/profile.jpg"
+              alt="AI & IoT Expert"
+              fill
+              className="object-cover"
+              priority
             />
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:w-2/3 md:pl-12"
+
+          <motion.div 
+            initial={{ x: 50 }}
+            animate={{ x: 0 }}
+            className="flex-1 space-y-6"
           >
-            <h2 className="text-2xl font-semibold mb-4 text-cyan-300">Muhammad Ashar Javid</h2>
-            <p className="mb-4">
-              I am an AI Engineer with a strong background in Electrical Engineering, having graduated from NUST. My
-              passion for artificial intelligence and innovation has led me to found XploreBot and co-found E-Deviser,
-              two ventures at the forefront of AI technology.
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Bridging AI & Hardware Innovation
+            </h2>
+            
+            <p className="text-lg leading-relaxed">
+              As a <span className="text-blue-400">Full-Stack Developer</span> and <span className="text-purple-400">Embedded Systems Engineer</span>, 
+              I specialize in creating intelligent systems that combine cutting-edge AI with robust hardware solutions. 
+              My 5+ years of experience spans:
             </p>
-            <p className="mb-4">
-              At XploreBot, we're pushing the boundaries of what's possible with AI, developing cutting-edge solutions
-              for real-world problems. E-Deviser, on the other hand, focuses on bridging the gap between traditional
-              engineering and modern AI applications.
-            </p>
-            <p className="mb-4">
-              My expertise spans across various domains of AI, including machine learning, deep learning, computer
-              vision, and natural language processing. I'm constantly learning and adapting to the rapidly evolving
-              field of AI, always eager to tackle new challenges and explore cutting-edge technologies.
-            </p>
-            <p>
-              When I&apos;m not working on AI projects, you can find me mentoring aspiring engineers, participating in tech
-              conferences, or contributing to open-source AI projects. I believe in the power of AI to transform
-              industries and improve lives, and I&apos;m excited to be part of this revolutionary journey.
-            </p>
+
+            <motion.ul 
+              className="grid grid-cols-2 gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              {[
+                'Neural Network Optimization',
+                'Edge AI Deployment',
+                'IoT Architecture Design',
+                'FPGA Acceleration'
+              ].map((skill, i) => (
+                <motion.li
+                  key={skill}
+                  initial={{ x: -20 }}
+                  animate={{ x: 0 }}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="flex items-center gap-2 text-gray-300"
+                >
+                  <span className="text-blue-500">▹</span>
+                  {skill}
+                </motion.li>
+              ))}
+            </motion.ul>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-
-export default About
 
