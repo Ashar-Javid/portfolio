@@ -1,33 +1,42 @@
-import BlogPost from "../components/BlogPost"
+import Link from 'next/link';
 
-const blogPosts = [
+interface Post {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+}
+
+// Local data (or fetch from API route)
+const blogPosts: Post[] = [
   {
-    title: "The Future of AI in Healthcare",
-    excerpt: "Exploring how artificial intelligence is revolutionizing the healthcare industry...",
-    date: "2023-05-15",
-    slug: "future-of-ai-in-healthcare",
+    slug: 'first-post',
+    title: 'My First Blog Post',
+    excerpt: 'Introduction to my blog...',
+    date: '2024-03-20'
   },
-  {
-    title: "Building Scalable Machine Learning Systems",
-    excerpt: "Best practices for designing and implementing scalable ML systems...",
-    date: "2023-05-01",
-    slug: "building-scalable-ml-systems",
-  },
-  // Add more blog posts here
-]
+  // Add more posts
+];
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-16">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8 text-green-400">Blog</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <BlogPost key={index} {...post} />
-          ))}
-        </div>
+    <div className="container mx-auto py-12 px-4">
+      <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
+      <div className="grid gap-6">
+        {blogPosts.map((post) => (
+          <article 
+            key={post.slug}
+            className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition"
+          >
+            <Link href={`/blog/${post.slug}`}>
+              <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+              <p className="text-gray-400">{post.excerpt}</p>
+              <time className="text-sm text-gray-500">{post.date}</time>
+            </Link>
+          </article>
+        ))}
       </div>
     </div>
-  )
+  );
 }
 

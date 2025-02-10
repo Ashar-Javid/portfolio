@@ -33,9 +33,14 @@ const ProjectsPreview = () => {
       <h2 className="text-3xl font-bold mb-4 text-center text-emerald-400">Featured Projects</h2>
       <div className="flex flex-wrap justify-center gap-4">
         {projects.map((project, index) => (
-          <a href={project.url} target="_blank" rel="noopener noreferrer" className="block">
-          <motion.div
+          <a 
             key={index}
+            href={project.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="block"
+          >
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="relative w-64 h-48 rounded-lg overflow-hidden shadow-lg"
           >

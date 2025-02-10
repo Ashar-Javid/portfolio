@@ -76,11 +76,12 @@ const Projects = () => {
               >
                 <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     width={600}
                     height={400}
                     className="w-full h-64 object-cover"
+                    priority
                   />
                   <div className="p-6">
                     <h3 className="text-2xl font-semibold mb-2 text-cyan-300">{project.title}</h3>

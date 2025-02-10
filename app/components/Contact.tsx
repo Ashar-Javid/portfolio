@@ -49,8 +49,8 @@ const Contact = () => {
             className="md:w-1/2 mb-8 md:mb-0"
           >
             <h2 className="text-2xl font-semibold mb-4 text-cyan-300">Get in Touch</h2>
-            <p className="mb-6">
-              I'm always open to new opportunities, collaborations, or just a friendly chat about AI and technology.
+            <p className="text-gray-300 mb-6">
+              I&apos;m always open to new opportunities, collaborations, or just a friendly chat about AI and technology.
               Feel free to reach out!
             </p>
             <div className="space-y-4">

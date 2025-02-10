@@ -53,9 +53,9 @@ const About = () => {
               field of AI, always eager to tackle new challenges and explore cutting-edge technologies.
             </p>
             <p>
-              When I'm not working on AI projects, you can find me mentoring aspiring engineers, participating in tech
+              When I&apos;m not working on AI projects, you can find me mentoring aspiring engineers, participating in tech
               conferences, or contributing to open-source AI projects. I believe in the power of AI to transform
-              industries and improve lives, and I'm excited to be part of this revolutionary journey.
+              industries and improve lives, and I&apos;m excited to be part of this revolutionary journey.
             </p>
           </motion.div>
         </div>
